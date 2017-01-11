@@ -1,0 +1,29 @@
+{
+  "name": "deimos/session",
+  "description": "Deimos Session.",
+  "keywords": [
+    "deimos",
+    "session"
+  ],
+  "homepage": "https://github.com/REZ1DENT3/DeimosSession",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "rez1dent3",
+      "email": "maksim.babichev95@gmail.com"
+    }
+  ],
+  "require": {
+    "deimos/helper": "~0.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.7",
+    "codeclimate/php-test-reporter": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Deimos\\": "src/"
+    }
+  }
+}
