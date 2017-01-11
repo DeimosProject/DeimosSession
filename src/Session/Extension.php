@@ -27,10 +27,12 @@ abstract class Extension
     /**
      * @param string $name
      * @param mixed  $value
+     *
+     * @throws \InvalidArgumentException
      */
     public function set($name, $value)
     {
-        $this->object[$name] = $value;
+        $this->helper()->arr()->set($this->object, $name, $value);
     }
 
     /**
