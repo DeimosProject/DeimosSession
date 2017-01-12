@@ -16,7 +16,7 @@ class SessionTest extends TestSetUp
         $mt_rand = mt_rand();
         $this->session->set('test', $mt_rand);
 
-        $this->session->set('required', $rand);
+        $this->session->set('required', $mt_rand);
 
         $this->session->getRequired('required');
 
