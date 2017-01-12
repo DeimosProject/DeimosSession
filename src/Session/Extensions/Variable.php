@@ -27,7 +27,7 @@ trait Variable
                 global $_SESSION;
             }
 
-            $this->init   = session_start();
+            $this->init = session_id() OR session_start();
             $this->object = &$_SESSION;
         }
 
