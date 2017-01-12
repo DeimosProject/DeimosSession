@@ -22,10 +22,7 @@ trait Variable
     {
         if (!$this->init)
         {
-            if ($_SESSION === null)
-            {
-                global $_SESSION;
-            }
+            global $_SESSION;
 
             $this->init = session_id() OR session_start();
             $this->object = &$_SESSION;
