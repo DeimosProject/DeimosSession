@@ -16,11 +16,6 @@ class SessionTest extends TestSetUp
         $rand = mt_rand();
         $this->session->set('test', $rand);
 
-        $this->assertEquals(
-            $rand,
-            $this->session->test
-        );
-
         $this->session->set('required', $rand);
 
         $this->session->getRequired('required');
@@ -45,6 +40,11 @@ class SessionTest extends TestSetUp
         $this->assertEquals(
             'magic',
             $this->session->get('testSet')
+        );
+
+        $this->assertEquals(
+            $rand,
+            $this->session->test
         );
 
     }
