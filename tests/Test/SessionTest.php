@@ -13,7 +13,7 @@ class SessionTest extends TestSetUp
     public function testTest()
     {
 
-        $rand = mt_rand();
+        $mt_rand = mt_rand();
         $this->session->set('test', $rand);
 
         $this->session->set('required', $rand);
@@ -43,7 +43,7 @@ class SessionTest extends TestSetUp
         );
 
         $this->assertEquals(
-            $rand,
+            $mt_rand,
             $this->session->test
         );
 
