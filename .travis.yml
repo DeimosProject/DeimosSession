@@ -6,16 +6,15 @@ php:
   - nightly
 
 before_script:
-- "composer require codeclimate/php-test-reporter --dev"
-- "composer install"
+  - "composer install --dev"
+  - "composer require codeclimate/php-test-reporter --dev"
 
 script:
-- "phpunit --coverage-text --coverage-clover build/logs/clover.xml"
-
-after_script:
-- CODECLIMATE_REPO_TOKEN="29f1a3215a5477dfb254624d35c3716eed4fa37f0dfa20db69069ff6f99373d7" vendor/bin/test-reporter --stdout > codeclimate.json
-- "sh -c 'if [ \"$TRAVIS_PHP_VERSION\" != \"hhvm\" ]; then curl -X POST -d @codeclimate.json -H \"Content-Type: application/json\" -H \"User-Agent: Code Climate (PHP Test Reporter v0.1.1)\" https://codeclimate.com/test_reports  ; fi'"
+  - "phpunit --coverage-text --coverage-clover build/logs/clover.xml"
 
 addons:
-    code_climate:
-        repo_token: 29f1a3215a5477dfb254624d35c3716eed4fa37f0dfa20db69069ff6f99373d7
+  code_climate:
+    repo_token: 29f1a3215a5477dfb254624d35c3716eed4fa37f0dfa20db69069ff6f99373d7
+
+after_success:
+  - ./vendor/bin/test-reporter
