@@ -55,7 +55,7 @@ abstract class Extension
     /**
      * remove all keys
      */
-    public final function removeAll()
+    final public function removeAll()
     {
         foreach ($this->object() as $name => &$value)
         {

@@ -58,4 +58,23 @@ class SessionTest extends TestSetUp
         $this->session->getRequired('required');
     }
 
+    /**
+     * @runInSeparateProcess
+     * @expectedException \Deimos\Helper\Exceptions\ExceptionEmpty
+     */
+    public function testRemoveAll()
+    {
+        $storage = range(1, 100);
+        foreach ($storage as $key => $item)
+        {
+            $keyName = 'item' . $key;
+            $this->session->set($keyName, $item);
+        }
+
+        $this->session->removeAll();
+
+        $this->assertNull($this->session->get('item0'));
+        $this->session->getRequired('item99');
+    }
+
 }

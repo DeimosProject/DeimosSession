@@ -52,6 +52,8 @@ class Session extends Extension
     /**
      * @param string $name
      * @param mixed  $value
+     *
+     * @throws \InvalidArgumentException
      */
     public function __set($name, $value)
     {
